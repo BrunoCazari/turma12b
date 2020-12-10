@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity // será armazenado no BD
 @Table(name = "anuncio")
-
+ 
 public class Anuncio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 1,2,3
