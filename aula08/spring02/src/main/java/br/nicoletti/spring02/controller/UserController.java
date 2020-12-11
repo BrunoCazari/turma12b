@@ -85,4 +85,24 @@ public class UserController {
         }
         return ResponseEntity.status(404).build();
     }
+
+    @GetMapping("/id2/{id}")
+    public ResponseEntity<User> buscarPersonalizado(@PathVariable int id) {
+        User userFinded = dao.buscaPorId(id);
+
+        if(userFinded != null){
+            return ResponseEntity.ok(userFinded);
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/id3/{id}")
+    public ResponseEntity<Object> buscarUserPersonalizado(@PathVariable int id) {
+        Object userFinded = dao.buscarUsuariosPorId(id);
+
+        if(userFinded != null){
+            return ResponseEntity.ok(userFinded);
+        }
+        return ResponseEntity.notFound().build();
+    }
 }

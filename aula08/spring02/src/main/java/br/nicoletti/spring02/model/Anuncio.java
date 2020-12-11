@@ -9,8 +9,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity // será armazenado no BD
 @Table(name = "anuncio")
+@Getter @Setter
  
 public class Anuncio {
     @Id
@@ -26,9 +32,10 @@ public class Anuncio {
 
     @ManyToOne
     @JoinColumn(name = "id_user")
+    @JsonIgnoreProperties("anuncios")
     private User user;
 
-    public int getId() {
+/*     public int getId() {
         return id;
     }
 
@@ -50,7 +57,7 @@ public class Anuncio {
 
     public void setValor(Double email) {
         this.valor = email;
-    }
+    } */
 }
 
 

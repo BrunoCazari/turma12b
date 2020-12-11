@@ -10,8 +10,15 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity // será armazenado no BD
 @Table(name = "user")
+@Getter @Setter @NoArgsConstructor
 
 public class User {
     @Id
@@ -32,9 +39,16 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "user")
+    @JsonIgnoreProperties("user")
     private List<Anuncio> anuncios;
 
-    public int getId() {
+
+    public User(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }    
+
+/*  public int getId() {
         return id;
     }
 
@@ -72,7 +86,7 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
+    } 
     
     public List<Anuncio> getAnuncios() {
         return anuncios;
@@ -81,4 +95,8 @@ public class User {
     public void setAnuncios(List<Anuncio> anuncios) {
         this.anuncios = anuncios;
     }
+
+    public User() {
+    } */
+    
 }
