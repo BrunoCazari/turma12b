@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <script src="/js/agentes.js"></script>
+    <script src="/js/dashboard.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
@@ -24,27 +24,35 @@
 
 </head>
 
-<body onload="carregaAgente()">
-    <div class="container">
-
+<body onload="validaLogin()">
+    <div class="container-fluid">
         <br>
         <div class="row">
-            <div class="col-lg-2 col-md-2 col-sm-2"></div>
-            <div class="card text-white bg-info col-lg-8 col-md-8 col-sm-8">
+            <div class="col-lg-2 col-md-2 col-sm-2"></div>    
+            <div id="dadosUser" class="col-lg-7 col-md-7 col-sm-7"></div>              
+            <div class="col-lg-1 col-md-1 col-sm-1">
+                <button onclick="logout()" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false">
+                    Logout
+                  </button>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2"></div>             
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-2 col-md-1 col-sm-1"></div>
+            <div class="card text-white bg-info col-lg-8 col-md-10 col-sm-10">
                 <div class="card-header">
                     <h5>Parceiro</h5>
                 </div>
-                <div class="card-body">
-                    <p class="card-text"><h4>XXXXXX</h4></p>
-                </div>
+                <div id="dadosAgente" class="card-body"></div>
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+            <div class="col-lg-2 col-md-1 col-sm-1"></div>
         </div>
         <br><br>
 
         <div class="row">
-            <div class="col-lg-2 col-md-2 col-sm-2"></div>
-            <div class="card text-white bg-success col-lg-2 col-md-2 col-sm-2" style="max-width: 18rem;">
+            <div class="col-lg-2 col-md-0 col-sm-1"></div>
+            <div class="card text-white bg-success col-lg-2 col-md-3 col-sm-0">
                 <div class="card-header">
                     <h5>Sucesso</h5>
                 </div>
@@ -52,10 +60,10 @@
                     <p class="card-text"><h4>1817</h4></p>
                 </div>
             </div>
-            <div class="col-lg-1 col-md-1 col-sm-1"></div>
+            <div class="col-lg-1 col-md-0 col-sm-1"></div>
 
 
-            <div class="card text-white bg-warning col-lg-2 col-md-2 col-sm-2" style="max-width: 18rem;">
+            <div class="card text-white bg-warning col-lg-2 col-md-3 col-sm-0">
                 <div class="card-header">
                     <h5>Falhas</h5>
                 </div>
@@ -64,10 +72,10 @@
                 </div>
             </div>
 
-            <div class="col-lg-1 col-md-1 col-sm-1"></div>
+            <div class="col-lg-1 col-md-0 col-sm-1"></div>
 
 
-            <div class="card text-white bg-danger col-lg-2 col-md-2 col-sm-2" style="max-width: 18rem;">
+            <div class="card text-white bg-danger col-lg-2 col-md-3 col-sm-0">
                 <div class="card-header">
                     <h5>Fraudes</h5>
                 </div>
@@ -76,17 +84,18 @@
                 </div>
             </div>
 
-            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+            <div class="col-lg-2 col-md-0 col-sm-0"></div>
 
         </div>
         <br><br>
         <div class="row">
-            <div class="col-lg-10 col-md-10 col-sm-10"></div>
+            <div class="col-lg-9 col-md-9 col-sm-9"></div>
             <div class="col-lg-2 col-md-2 col-sm-2">
             <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" onclick="voltar(event)">
                 Voltar
               </button>
             </div>
+            <div class="col-lg-1 col-md-1 col-sm-1"></div>            
         </div>        
     </div>
 </body>
