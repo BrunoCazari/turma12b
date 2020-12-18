@@ -55,10 +55,10 @@ function logout(){
 function buscarTop10(){
     fetch("http://localhost:8080/agentes/all")
         .then(res => res.json())
-        .then(res => exibirUsers(res))
+        .then(res => exibirTop10(res))
 }
 
-function exibirUsers(lista){
+function exibirTop10(lista){
     let tabela = "<h4>Top 10 Parceiros</h4> <br> <table class='table table-striped' border='1'> <thead> <tr> <th scope='col' width='60%'>Parceiro</th> <th scope='col' width='40%'>Volume Transacional</th> </tr>"
     for (let i = 0; i < lista.length; i++){
         tabela = tabela + `<tr> <td>${lista[i].nomeAgente}</td>  <td>${lista[i].volumeTransacional}</td> </tr>`
